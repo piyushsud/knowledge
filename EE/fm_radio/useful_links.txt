@@ -1,0 +1,4 @@
+- https://www.instructables.com/Build-your-own-Crude-FM-Radio/
+- https://www.mikroe.com/ebooks/radio-receivers-from-crystal-set-to-stereo/the-simplest-fm-receiver
+- https://saving.em.keysight.com/en/calculators/inductance-calculator
+- https://www.cuidevices.com/blog/understanding-audio-jack-switches-and-schematics
