@@ -7,4 +7,4 @@
 - https://www.analog.com/en/resources/media-center/videos/5579239882001.html
 - https://www.reddit.com/r/AskElectronics/comments/sb2ivl/how_does_the_modulator_block_in_ltspice_works/
 - Impedance matching: https://blog.minicircuits.com/impedance-matching-devices/
-- 
+- LO: https://ham.stackexchange.com/questions/22129/how-to-design-a-local-oscillator-for-a-radio-receiver
