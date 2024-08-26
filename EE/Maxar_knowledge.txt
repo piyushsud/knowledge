@@ -1,0 +1,143 @@
+EMC stands for electromagnetic compliance/compatibility
+	- Very hard to simulate, very esoteric
+	- A device can send signals which interfere with other devices, or it can be too susceptible to interference from other signals
+	
+Ferrite beads are made of materials that generate eddy currents when exposed to electromagnetic radiation
+
+Ferrite beads act similar to a low pass filter
+
+Therefore any signal that is generated is neither reflected nor passed through - it is dissipated as heat
+
+In general it is bad practice to you use them, a low pass filter/bypass cap is usually better because less heat is dissipated
+
+Ferrite clamps are what are used on your computer power supply
+
+Ferrite beads are usually used as SMD components on a circuit board
+
+A common mode choke coil is a device used to remove common mode noise. It does this by placing wrapping wire 
+around a loop in two different directions on the top and bottom of a circular ferromagnetic material. When there is common mode noise, the magnetic flux accumulates and a current is induced in the direction opposing the change in the magnetic field (according to Lenz's law), producing impedance.
+
+A first order filter is a filter that reduces at 20 db/dec after the cutoff frequency, while a second order filter reduces at 40 db/dec. RC filters are first order, while LC filters are second order. LC filters are better suited for high power applications due to more reactance and less resistance and therefore less heat dissipation.
+
+A BJT with a pullup resistor with the base connected to a voltage in a common source amplifier configuration
+can be used for voltage sequencing. The collector can be connected to the gate of a mosfet enabling the 
+secondary voltage so that the first voltage is high before the second one.
+
+A latch-up is a parasitic transistor/short created between two diffusions of separate transistors. It can
+be caused by space radiation or a voltage spike that exceeds the supply/rail voltage by a diode voltage drop.
+
+In order to fix the latch-up, power needs to be cycled.
+
+Rail voltage is just supply voltage.
+
+FRAM stands for Ferro-Electric RAM. It is similar to DRAM but instead uses a ferroelectric layer instead of 
+a dielectric layer for non-volatile memory storage. Ferroelectric materials become electrically polarized 
+when an electric field is applied, and this polarization can be reversed with a reverse electric field.
+
+Triple mode redundancy is a type of error correcting code that uses the majority rule - three systems produce
+an output and the majority wins.
+
+Altium needs "off sheet connections" to connect between two sheets in a schematic. They look like pins but 
+they are actually just nets.
+
+DNP stands for "do not populate" in circuit boards, it is used to designate components that may not be needed
+or can be swapped out in a modular design.
+
+The x at the end of the wire denotes an unconnected wire to prevent DRC errors.
+
+A watchdog timer is a timer that detects any faults by the computer and automatically resets it. This counter 
+typically counts down to 0 and if it reaches 0, it sends a reset signal to the processor. If the processor is
+functioning correctly, it sends a reset signal to the watchdog timer periodically to bring the timer back
+to it's initial value. If it's not functioning correctly, after a certain amount of time the processor will be 
+reset.
+
+A diode between a high voltage source and ground is used to prevent the voltage at the input of the ADC from becoming
+too high by clamping it to the rail (e.g. in case there is a bad solder joint the voltage divider doesn't work).
+The reason it is a diode is because current can only flow in one direction, so if the voltage at the input to the ADC
+is lower than 3.3V then it will work normally.
+
+Undervoltage lockout(UVLO) is used to remove power from a device if the voltage goes below a minimum threshold. It is used in the case that the input voltage has not yet reached the desired value so the converter tries to regulate the output voltage, causing a large amount of current draw from the power supply. There are two types of enables for UVLO - precision enable and logic level enable. Precision enable compares the voltage applied at the enable to an internal voltage. If the voltage applied at the enable pin is higher than the internal voltage, the device remains on. Logic 
+level enable simply enables the converter if the voltage is logic high, and vice versa with logic low.
+
+UVLO has a rising threshold and a falling threshold - if the voltage exceeds the rising threshold, it must go below the falling threshold for UVLO to occur.
+
+ESR stands for equivalent series resistance. It is high at low frequencies and reduces at a decreasing rate at high frequencies.
+
+ESL stands for equivalent series inductance. It is low at low frequencies and high at high frequencies. It dominates
+ESR and capacitive impedance at high frequencies.
+
+An ideal capacitor just contains impedance, but a non-ideal capacitor contains ESR and ESL, which are parasitic resistances and inductances. Multiple capacitors in parallel are used to reduce the ESR. For calculating the cutoff frequency, you can still use the parallel equivalent capacitance.
+
+An LDO is a low-dropout regulator, which is a type of linear regulator. It is less efficient than a buck converter, but produces less noise because it is not a switching converter. 
+
+POL stands for Point-of-Load Converter. It is a converter used for converting voltages used for high power applications to  voltages used for microcontrollers/signals.
+
+The dot convention for couple inductors states that if current is flowing into the dot on one coil, then the voltage is positive at the dot at the other coil, and vice versa.
+
+Lenz's law: The current induced in a conductor is in the direction which opposes the change in the magnetic field which induced the current.
+
+Zener diodes are a type of diode which allows current to flow backwards if a certain voltage threshold is reached, which is called the Zener voltage.
+
+Ideal Zener diodes are very similar to TVS diodes. However, TVS diodes have a faster response. Typically, Zener diodes are used for maintaining a fixed voltage output, while TVS diodes are used for handling voltage spikes. TVS diodes and Zener diodes are often treated as the same in datasheets, but in reality they are two different types of diodes.
+
+The junction of a chip in the context of heat dissipation is the hottest location within the chip.
+
+Two numbers are commonly given for thermal ratings for IC packages: RTJA and RTJC (also known as Theta JA and Theta JC). JA stands for Junction to Ambient, while JC stands for Junction to Case.
+
+Tinning a wire means adding solder to the end of a wire, makes it more brittle sometimes.
+
+SWD stands for Serial Wire Debug - it is an implementation of JTAG specifically for ARM processors.
+
+VPX - Virtual Path Cross-Connect, also known as VITA 46, is a set of standards for connecting components of a computer (also called a computer bus) commonly used by defense contractors.
+
+For a bode plot, the phase tells you the delay between the input and output. For all real causal systems, the phase < 0. Magnitude plots are always in dB, and 0dB = a gain of 1.
+
+A DC-DC converter is a closed loop control system.
+
+Loop gain is used to measure how stable a power supply is. It is the product of all gains in a feedback loop. Ideally, the loop gain could be measured by opening up the loop and measuring the output response/input response. However, this is impractical in many situations because of the very large gain of the error amplifier, which could damage the system. A better way to measure the loop gain is to inject an AC test voltage/current into the closed loop system and measure the ratio between the voltage response at the two ends of the injection voltage.
+
+S-parameters are parameters of a "Scattering Matrix" that describe the behavior of a linear system under steady-state stimuli. They are complex numbers and measured by ports of a network of a network analyzer.
+
+For impedance matching, not only do the source and load have to have the same impedance, but so does the transmission line.
+
+A 10x probe divides the signal by 10 using a voltage divider + matching network. The probe can be represented as a complex impedance, and the oscilloscope leads + input impedance can also be represented as an impedance. The voltage divider created by these impedances is just a resistance if the cutoff frequency is the same for both.
+
+Advantages of a 1x probe: Has a low bandwidth, so good for filtering high frequency noise. This is because it doesn't have any resistance/capacitance so the input capacitance of the scope filters out the high frequencies.
+
+Advantages of a 10x probe: Has a high bandwidth, since the matching network in the probe cancels out the input capacitance of the scope + transmission line. Also good for measuring high voltage signals since it attenuates them.
+
+Parallel impedance is product over sum.
+
+An injection isolator is a device used to inject a signal without noise. A current probe can be used but it tends to be noisy. Hence an injection isolator (which uses a transformer) is better.
+
+For measuring loop gain of a buck converter, the amplitude being too low (e.g. 2 mV) can cause signal measurement error, while the output being too high (e.g. 100 mV) can result in the converter saturating.
+
+Output impedance is the source resistance of a driver.
+
+Dropout voltage is the smallest difference between the input and output voltage of a regulator at which it can regulate at the rated current and voltage. A low dropout voltage = high efficiency.
+
+Use 10x probes with oscilloscopes instead of reg. coax cables
+10x probes have voltage divider + matching network
+
+An eye diagram is a diagram that overlays various bit sequences on top of each other, and is typically used for measuring signal integrity.
+
+Signal jitter is when the edges of a signal occur at different times from the ideal.
+
+Petalinux is a set of Xilinx tools used for embedded software.
+
+IBIS models are used for high-speed digital interfaces (e.g. ethernet) and not analog components. They are used to determine how your digital chips interface with your analog components.
+
+Hysteresis is the dependence of a system on its history. Voltage hysteresis is lag between the output and input. Threshold hysteresis is used to add a range where no change will happen if the signal noise is within that threshold. It is often used with UVLO.
+
+Voltage injection is used because you cannot open up a loop for practical reasons to measure the loop gain.
+
+Just because a bode plot has a high gain at phase = 180 doesn't mean the system is unstable. Bode plots only work if the nyquist plot is "normal looking". 
+
+Gain crossover frequency = frequency at which gain = 1 = 0 dB.
+
+Input filter corner frequency should be higher than the gain crossover frequency so it doesn't interfere with the control loop.
+
+A logic analyzer is used for parsing digital data.
+
+A fishbone diagram is a problem-solving diagram consisting of the problem, then overarching causes, then further details.
+
