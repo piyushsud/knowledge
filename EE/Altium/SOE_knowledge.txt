@@ -1,0 +1,48 @@
+- An anti-aliasing filter is a filter applied before a sampler to restrict its bandwidth so that it satisfies the Nyquist criterion
+- A brick wall filter is an ideal filter with sharp edges and complete attenuation in the stop band
+- Since a brick wall filter does not exist in real life, real anti-aliasing filters have a tradeoff between bandwidth and aliasing. The larger the bandwidth, the larger the aliasing for a filter of a certain Q.
+- Phase Response tells you group delay (latency)
+- Arrhenius equation - used to tell rate of chemical reaction over time, used to determine resistor drift and speed up equivalent drift by increasing temp instead of increasing time.
+- The sharper the roll-off of a filter, the larger the group delay (see message from Rachel)
+- Different filter types have different frequency roll offs and ripple. Bessel filter (which Rachel implemented has low ripple in the passband but slow roll-off.
+- Backpowering is when a circuit is powered through the input or output because there is a clamp diode (e.g. a TVS diode) across the input or output, so the input/output is at a constant voltage. To avoid this, the inputs/outputs should be set to high impedance when Vcc = 0V.
+- Decimation filters are used to remove the excess bandwidth by only taking every Nth sample, which divides the sampling rate by N. Decimation filters always require an anti-aliasing filter to remove all frequencies above fs/2N to prevent aliasing.
+- JESD204 is a digital interface for high speed communication between a converter and a receiver, which is typically an ASIC/FPGA.
+- An FIR filter is a filter without feedback, whereas an IIR filter has feedback. IIR filters can typically implement the same filtering function as an FIR filter with fewer coefficients. However, they can become unstable if not designed correctly, unlike FIR filters which cannot become unstable since they don't have feedback.
+- A higher order filter is more like a brick wall filter, which means that you can have a higher bandwidth. Since a faster roll off corresponds to a larger latency, this is not ideal. However, in our case, we only care about latency until frequencies of around 500 KHz, so as long as the roll off starts much later than that it doesn't matter
+- The differential voltage that it takes to set the output of a non-ideal op-amp to 0V is called the input offset voltage
+- The differential bias current in a non-ideal op amp is called the input offset current
+- For a differential filter, we care about common mode response as well as differential response.
+- Common mode signals can be both DC and AC.
+- For a differential filter, the common mode frequency pole is typically much larger than the differential pole. This is because component tolerances are typically quite large, which would cause the filtering to be different on one side compared to the other, which would affect the differential signal. Therefore, we make the common mode pole at a frequency where the differential signal is no longer of interest.
+- AC termination consists of a resistor and a capacitor and is used for reducing power dissipation compared to regular resistive termination
+- Dynamic range is the maximum range between the largest value that an ADC can measure and the maximum of a) the noise floor and b) the lowest measurable voltage of the ADC based on its resolution.
+- A sallen-key filter is a type of second-order active filter, which is valued for its simplicity
+- Active filters are used instead of passive filters in many cases because they can use feedback, which increases the bandwidth of the amplifier. This avoids the need for inductors, which are large and hard to get.
+- An open drain configuration is used when for things like PGOOD, and communication protocols like I2C. It means that the comparator is high impedance instead of high when the input is low, so there are no issues with DC fighting.
+- Digital Isolators are typically used to isolate digital interfaces in the event of a high voltage spike. The input signal is typically measured, converted to the analog domain, and then recreated back into the digital domain. There are two methods to do this:
+  - Edge based methods (detects the edges of the input pulse and uses a comparator to reconstruct the digital signal)
+  - On off keying (modulates the input with a high frequency signal, passes it through isolation capacitors, and then uses an envelope detector)
+- Isolators can be either optical or silicon based
+- Blue wiring means a circuit board rework using thin blue wires
+- FTDI is a USB to other serial converter (e.g. USB to UART, USB to JTAG)
+- Electrolytic capacitors are polarized because one side always has a larger potential than the other. They are used because they can be used to create very large capacitance with small cost/packaging.
+- TTL = Transistor-Transistor-Logic. Generally uses BJTs.
+- CMOS has replaced TTL in most modern day devices
+- UART is a very general serial communication interface which specifies that, at a minimum, the two devices must communicate serially using an rx and tx pin.
+- RS232 is a more specific standard which describes protocols and voltages for the communication between two devices.
+- An FTDI chip converts between USB and RS-232/TTL logic.
+- Noise floor = sum of all noise signals
+- You can't do an anti-aliasing filter in the digital domain! This is because after you've sampled, the aliased signal has already been folded over into the baseband, and there's no way to differentiate between the aliased signal and the signal of interest. Therefore, you need to filter in the analog domain first, and then do additional digital filtering if necessary.
+- FETs operating as a switch should always be in the triode region.
+- The bidirectional ESD diode works because when current is flowing in one direction, it only flows if the reverse bias for the other diode is less than the breakdown voltage, and vice versa for the other direction. That is why the turn on voltage for either side is the breakdown voltage, not the threshold voltage.
+- The ESD diode is always put between gate and source, regardless if the device is an nmos or a pmos, since that is generally the easiest to breakdown. If you look at most datasheets, the maximum gate source voltage is typically much smaller than the gate drain voltage.
+- There are many ways to control the slew rate of the gate voltage.
+https://www.ti.com/lit/an/slva716a/slva716a.pdf?ts=1714092890989&ref_url=https%253A%252F%252Fwww.google.com%252F
+- Perhaps the easiest way to do it is to add a capacitor between gate and drain.
+- Crosstalk is only an issue between layers if there's not a ground plane between them.
+- There are three main types of EMI: capacitive, inductive, and radiative
+- A ground plane can reduce EMI in the following ways:
+     - It bends the magnetic field lines so that less of them hit the trace underneath the ground plane. Another way of saying this is that it provides a low-impedance return path for the current. Like electricity, magnetic fields will also choose the path of lowest impedance. https://www.uu.edu/dept/physics/scienceguys/2004Feb.cfm
+     - tenting vias means covering them with solder to protect them from environmental factors
+

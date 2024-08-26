@@ -1,0 +1,51 @@
+- Schematic design is top-down, so cannot place a sheet under another sheet but must instantiate it, and it gets automatically populated
+- for the template use size b
+- alt - double click to find tree of connections to a node
+- place -> note to place a note
+- space standard is to derate 150 to 110 for first ECO (EE-INST-002 standard)
+- Ctrl left click on a menu item to add a keyboard shortcut
+- Ctrl alt d aligns all components to the grid
+- Use 0603 for resistors for ease of rework
+- T - A - U to automatically assign component designators
+- to change cross select settings, right click in pcb window, go to preferences->system->navigation
+- shift s to toggle single layer mode
+- for via placing press 2
+- Repour all polygons = T G A
+- shift c to deselect everything
+- v f to fit board
+- tab to access properties while doing anything
+- a to align all components
+- Use selection filter to choose what components are selectable (leftmost item in top toolbar)
+- press shift+s to shift between the following single layer modes:
+     - Hide Other Layers - all other layers are hidden; only the contents of the active (current) layer are shown.
+     - Monochrome Other Layers - all other layers are displayed in the same shade of gray; the active layer is shown in its standard color.
+     - Multi-layer mode
+- press tab to select all traces connected to a trace
+- spacebar and shift+spacebar to rotate components only works when you are holding down on the component
+- panels->view configuration->drafts to only display edges of components instead of filling them in
+- DRC errors show up in the messages tab
+- generally it's a good idea to place components near the power polygons, rather than having a long path to the polygon, which cuts through other polygons and causes connectivity issues
+     - If this is not possible on the top side of the board, use the bottom side
+- A stripline is a type of transmission line in a PCB that is sandwiched between two ground planes for EMI protection
+- On the other hand, a microstrip is a transmission line with a ground plane on only one side
+- The solder mask is the insulative green part of the PCB
+- The border surrounding pads and traces is the solder mask expansion, allowing for margin if the solder mask is not placed exactly where it should be.
+- Edit the solder mask clearance rules by going to design -> rules
+- Polygons are better for thermals, so for high current circuits use polygons
+- ctrl-click to highlight all connections to a node
+- to create a polygon do place -> polygon
+- Use shift-space to change polygon morphology
+- Use space to create polygon corner
+- press backspace to undo last command while creating polygon
+- Use d->r for design rules
+- press tab while routing a wire to change whether loops are allowed or not
+- to slice tracks e->k
+- interactive length tuning: go to route and then r or p for differential or overall length
+- The trace isn't always correct if there's import errors. You can fix this by deleting the trace and rerouting. The trace may have a different net than the pad of a component. Can also use the pipet button in the track properties to assign it to a specific component.
+- Use the left bracket in altium to increase darkness
+- You can just connect a track to a via on a certain layer if you want to connect to it, don't have to create another via
+- v-f to center board
+- You can put multiple polygons in the same area, but one will take precedence over the other. You can change this by clicking "bring to front" or "bring to back" in the polygon pour properties
+- l to flip components to bottom side of board
+- To waive a DRC violation just right click on a violation in the messages and click waive
+
