@@ -1,0 +1,3 @@
+[submodule "Project_Specific_Knowledge/private/Yang_Lab"]
+	path = Project_Specific_Knowledge/private/Yang_Lab
+	url = https://github.com/piyushsud/Yang_Lab.git
