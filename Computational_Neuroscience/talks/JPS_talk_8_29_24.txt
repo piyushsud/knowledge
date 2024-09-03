@@ -1,0 +1,36 @@
+Engineering Memristor-CMOS Based Neuromorphic Architectures For Computational Acceleration: NP-Hard Optimization Problem Solvers and Building Associative Memories
+
+John Paul Strachan
+RWTH AACHEN University
+
+- There are many device implementaitons for optimzation problems, e.g. local search
+- goal in optimization problem is to find x that minimizes E, but in a non-convex space you can't use gradient descent
+- ising model of spins - np complete, so any problem in NP can be mapped to it => Ising machine community is growing.
+- Ising energy is sum of all weighted i and j sums and some factor*i.
+- Lots of algorithms inject noise to avoid local minimums.
+- Solver is a dynamical system, change s in time towards lower energies as effective temp goes to 0.
+- Ising model also called QUBO.
+- Example: 3SAT
+- When there are many more clauses than variables, the problem becomes much harder.
+- Can convert 3SAT into a minimizing energy/loss function.
+- Replace x1x2x3 with y = x1*x2, and add a penalty term to constrain 
+- In memory computing - memristor crossbars for high parallelism
+- Changning peripheral circuits can be used to address various problems/algorithms
+- Challenges - memristors not readily available, state fluctations and drift can limit multi-bit capabilities, reprogramming is higher energy and slower than sram
+- extrapolating system to 16 nm, time to solution is much faster (not actually implemented but projected)
+- problem: new auxilary variables change complexity from 2N to 2^4.25N.
+- solution: cahnged QUBO to PUBO (Polynomial Unconstrained Binary Optimization)
+- Additional circuits to deal with ternary circuits, larger crossbar area (although sparse so not that bad), but benefit is that reduced polynomials
+- Less RRAM area, but more CMOS
+- Error was dominated by cmos process variations
+- QUBO is essetnially simulated annealing, and PUBO requires a different algorithm 
+- Even more improvements: WalkSAT Solver
+- Implemented WalkSAT heurisitic algorithm using memristor crossbar and mixed analog/digital circuit
+- Complexity is independent of problem order K
+- For WalkSAT solver, Hamming distance is computed, for which memristor crossbar is used. Digital circuits are used for
+threshold functions and random number generators.
+- RAM vs. CAM
+- CAM systems - you feed in data, and if there's a match then it gives you the address. Some CAMs also have don't cares.
+- Analog/memristor based CAMs were used to speed up performance.
+- Analog CAM stores intervals instead of values
+- Temperature range was 0C-60C
