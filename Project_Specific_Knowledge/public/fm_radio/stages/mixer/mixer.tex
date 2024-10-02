@@ -93,7 +93,9 @@ For the mixer, we need:
 
 \begin{itemize}
     \item For the mixer, the input impedance varies between approximately 28.5 + j to 28.5 + 1.4j for the frequencies of 88 MHz to 108 MHz based on this table. 
-    \item Since we're operating at a nominal frequency of 98 MHz, the input impedance = 28.5 + 1.12j. \(Q = sqrt(\frac{Rs}{Rl} - 1) = sqrt(\frac{50}{28.5} - 1) = 0.86855395049\). \(Xc = \frac{Rs}{Q} = \frac{50}{0.86855395049} = 57.5669478814 \) ohms = \( \frac{1}{2*pi*98M*C} => C = \frac{1}{2*pi*98M*57.5669478814} = 28.211154 \) pF. \( Xl = \frac{Rl}{Q} = \frac{28.5}{0.86855395049} = 32.8131602924 \) ohms. \( X_{ext} = X_l - X_int = 32.8131602924 - 1.12 = \frac{31.6931602924}{2} = 15.8465801462 \) ohms per inductor = \(2*pi*98M*Lext => Lext = 25.7353221 \)nH.
+    \item Since we're operating at a nominal frequency of 98 MHz, the input impedance = 28.5 + 1.12j. \(Q = sqrt(\frac{Rs}{Rl} - 1) = sqrt(\frac{50}{28.5} - 1) = 0.86855395049\). \(Xc = \frac{Rs}{Q} = \frac{50}{0.86855395049} = 57.5669478814 \) ohms = \( \frac{1}{2*pi*98M*C} => C = \frac{1}{2*pi*98M*57.5669478814} = 28.211154 \) pF. \( Xl = Rl*Q = 28.5*0.86855395049 = 24.753787589 \) ohms. \( X_{ext} = X_l - X_int = 24.753787589 - 1.12 = \frac{31.6931602924}{2} = 23.633787589 \) ohms. Divide this by 2 to get 11.8168937945 ohms per inductor = \(2*pi*98M*Lext => Lext = 19.1909904 \)nH.
+    \item We need a transformer for converting the single ended signal to differential. We need a 1:1 ratio for impedance matching and it needs to have a center tap and operate at high frequencies. This seems like a good choice: \url{https://www.digikey.com/en/products/detail/mini-circuits/ADT1-1WT/13927938?s=N4IgTCBcDaIIIBEAqBGAtCg6kg1CAugL5A}
+    \item For the LO, we need similar impedance matching, only that we use a slightly different formula since Rl < Rs. The input impedance = 180 ohms. \(Q = sqrt(\frac{Rl}{Rs} - 1) = sqrt(\frac{180}{50} - 1) = 2.6\). \(Xc = \frac{R_l}{Q} = \frac{180}{2.6} = 69.2307692308 \) ohms = \( \frac{1}{2*pi*98M*C} => C = \frac{1}{2*pi*98M*69.2307692308} = 23.458212 \) pF. \( Xl = R_s*Q = 50*2.6 = 130 \) ohms = \(2*pi*98M*Lext => Lext = 211.123904 \)nH.
 \end{itemize}
 
 
