@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1727851220.41022 "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/mixer.tex" "mixer.pdf" "mixer" 1727851220.95177 0
-  "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/mixer.tex" 1727851220 8934 bd7ee760151ae6d397e731e973ddbaf0 ""
+["pdflatex"] 1727934239.0693 "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/mixer.tex" "mixer.pdf" "mixer" 1727934240.02626 0
+  "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/mixer.tex" 1727934238 9455 7c7c75d4c2c69f28c8f93fd370befc56 ""
   "c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1724321712 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1724321676 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1724321676 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -70,11 +70,15 @@
   "c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1724389590 14040 fb204262aa84c682e581e797476d265a ""
   "c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1724321786 6829348 7ffa42422ccc2201d29280bafe2c3a32 ""
   "c:/Users/piyus/AppData/Roaming/TinyTeX/texmf.cnf" 1724321688 903 164c5b127cd0d6dc91abad2f62421ea2 ""
-  "c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/mixer.tex" 1727851220 8934 bd7ee760151ae6d397e731e973ddbaf0 ""
+  "c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/mixer.tex" 1727934238 9455 7c7c75d4c2c69f28c8f93fd370befc56 ""
+  "c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/pictures/C4_trendline.PNG" 1727927448 9168 9ad564b7c24c50332859ff8f93ce16a0 ""
+  "c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/pictures/L5_trendline.PNG" 1727927528 9050 82b5b79225d864a07ea672a128b13299 ""
+  "c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/pictures/LO_circuit.png" 1727928107 22981 ec98104fea7c9e5196408b583e966d70 ""
   "c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/pictures/PLL_block_diagram.PNG" 1727766147 56492 eafa4e3d0242360f0e619a312442db36 ""
   "c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/pictures/mixer_input_impedance_match.PNG" 1727767398 139017 5c579c3b6ef438286d4ee6f6b2ca966c ""
-  "mixer.aux" 1727851220 745 c6cf49a26bffee5a1d9b10361d0e9600 "pdflatex"
-  "mixer.out" 1727851220 732 fef42dca0308c4b95e133c8ed7a56690 "pdflatex"
+  "c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/mixer/pictures/output_circuit.PNG" 1727930186 25191 0c6d3aa455b6299263cbafb524d9e954 ""
+  "mixer.aux" 1727934239 740 99dbcf1116b4226b481642a602a64b66 "pdflatex"
+  "mixer.out" 1727934239 699 b4258364fcad13b45b8d3a080dbdee8d "pdflatex"
   (generated)
   "mixer.aux"
   "mixer.log"

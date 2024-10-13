@@ -1,0 +1,33 @@
+% !TEX root = C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/power/power.tex
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{ {C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/power/pictures} }
+
+\title{Power Notes}
+\author{Piyush Sud}
+\date{9/30/2024}
+\begin{document}
+\maketitle
+
+\pagebreak
+
+\section{High Level Design}
+
+\begin{itemize}
+    \item The entire system will be powered by a single 14V power supply. This is quite noisy, so we will need LDOs for all the logic level supplies. For the 14V power supply, let's use this: \url{https://www.amazon.com/Universal-Adapter-Charger-Interchangeable-Adapters/dp/B0CPPPVG1G/ref=sr_1_3?crid=2KLES6HGGUCI2&dib=eyJ2IjoiMSJ9.4r7Cki0zlXUtJQKT-1hYuwlbBar_RD_jqO8kzk3YThAURSIVDYEFQyR5ftYOVwzLVe2k_Az4fdqSYnsUkUqUPjn3C6fEPJ39Uh68V2AjiPOvsE10gY9pYzNfYLFxlHjSZ6pAs_0IBiFielAX_ZnYKr8bwzX3uQVFOwX4dY91pt86CmygiIaYbwo5iViyVy0eNgYn-7KdniKJ8pnflphrXGPhvf6tuvrXRrycFjWWcVM.ct3hYxPMlpg8BKUBbNV4c0ou_J1ZHIAdPAI9vWayJgM&dib_tag=se&keywords=dc+power+supply+14V&qid=1727954337&sprefix=dc+power+supply+14v%2Caps%2C368&sr=8-3}
+    \item Let's use the AZ1117ID-ADJTRG1 for our 12V supply. It has a good PSRR of 70 dB @ 120 Hz. This works since Vin = Vout + 2V for the adj supply.
+    \item Let's use the AZ1117ID-3.3 and AZ1117ID-5 for our 3.3V and 5V supplies respectively. For those, \(1.5V < Vin - Vout < 10V\), so we can use the 12V supply as Vin so that Vin - Vout = 8.7V for the 3V3 supply and 7V for the 5V supply. 
+    \item Let's use the recommended 10 uF and 22 uF decoupling caps as recommended in the datasheet, and select caps that are low ESR.
+\end{itemize}
+
+\section{Calculations}
+
+\begin{itemize}
+    \item For the adjustable supply, the resistors needed are given by this formula: VOUT=VREF * (1+R2/R1) + IADJ * R2
+    \item The reference voltage is fixed at 1.25V. The IADJ can be ignored since it's very small.
+    \item To get a 12V supply from 14V and setting R2 = 2kohms, 1k/R1 = 12/1.25 - 1 so R1 = 232.558139534 ohms.
+\end{itemize}
+
+\end{document}

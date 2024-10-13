@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.22)  2 OCT 2024 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.22)  11 OCT 2024 10:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/HF_amp.tex
-(c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/HF_amp.tex
+**C:/Users/piyus/knowledge/EE/Analog/sample_and_hold_circuits/sample_and_hold.tex
+(c:/Users/piyus/knowledge/EE/Analog/sample_and_hold_circuits/sample_and_hold.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
 (c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -153,8 +153,8 @@ File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count280
 \l__pdf_internal_box=\box52
-) (./HF_amp.aux)
-\openout1 = `HF_amp.aux'.
+) (./sample_and_hold.aux)
+\openout1 = `sample_and_hold.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -175,9 +175,9 @@ LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 Package hyperref Info: Link coloring OFF on input line 11.
- (./HF_amp.out) (./HF_amp.out)
+ (./sample_and_hold.out) (./sample_and_hold.out)
 \@outlinefile=\write3
-\openout3 = `HF_amp.out'.
+\openout3 = `sample_and_hold.out'.
 
  (c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -194,64 +194,35 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/rec_app_circuit.png, id=23, 491.436pt x 429.40425pt>
-File: C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/rec_app_circuit.png Graphic file (type png)
-<use C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/rec_app_circuit.png>
-Package pdftex.def Info: C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/rec_app_circuit.png  used on input line 39.
-(pdftex.def)             Requested size: 390.0pt x 340.7916pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 43.
+(Font)              <12> on input line 19.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 43.
+(Font)              <8> on input line 19.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 43.
-
-Overfull \hbox (14.48923pt too wide) in paragraph at lines 45--46
-[]\OT1/cmr/m/n/12 Let's set it to 1uF, which would give us an impedance of $[] \OMS/cmsy/m/n/12 ^^@
- []
+(Font)              <6> on input line 19.
 
 
-Overfull \hbox (35.07489pt too wide) in paragraph at lines 47--48
-\OT1/cmtt/m/n/12 digikey . com / en / products / detail / kyocera-[]avx / 530L104KT16T / 6570911 ?
- []
-
-
-
-[2]
-
-[3 <c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/rec_app_circuit.PNG>]
-<C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/group_delay.png, id=47, 1155.71774pt x 522.15076pt>
-File: C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/group_delay.png Graphic file (type png)
-<use C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/group_delay.png>
-Package pdftex.def Info: C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/group_delay.png  used on input line 58.
-(pdftex.def)             Requested size: 390.0pt x 176.19835pt.
-
-
-[4 <c:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures/group_delay.PNG>] (./HF_amp.aux)
+[2] (./sample_and_hold.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
-Package rerunfilecheck Info: File `HF_amp.out' has not changed.
-(rerunfilecheck)             Checksum: 3C483F83A890E997EDC95BCE6C0B8CD0;333.
+Package rerunfilecheck Info: File `sample_and_hold.out' has not changed.
+(rerunfilecheck)             Checksum: B62C17B9C77A5597EF104B1BC62A0714;68.
  ) 
 Here is how much of TeX's memory you used:
- 8183 strings out of 475538
- 131361 string characters out of 5775359
- 1933960 words of memory out of 5000000
- 30755 multiletter control sequences out of 15000+600000
- 563129 words of font info for 53 fonts, out of 8000000 for 9000
+ 8148 strings out of 475538
+ 129472 string characters out of 5775359
+ 1928960 words of memory out of 5000000
+ 30725 multiletter control sequences out of 15000+600000
+ 562960 words of font info for 52 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,7n,79p,539b,504s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on HF_amp.pdf (4 pages, 313524 bytes).
+ 75i,6n,79p,339b,434s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/piyus/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on sample_and_hold.pdf (2 pages, 46262 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 8 named destinations out of 1000 (max. 500000)
- 35 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 47 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
+ 9 words of extra memory for PDF output out of 10000 (max. 10000000)
 

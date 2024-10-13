@@ -1,6 +1,7 @@
 % !TEX root = C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/HF_amp.tex
 \documentclass[12pt, letterpaper]{article}
 
+\usepackage{hyperref}
 \usepackage{graphicx}
 \graphicspath{ {C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/HF_amp/pictures} }
 
@@ -43,7 +44,7 @@ Using the recommended application circuit:
     \item For Cblock, we want it to block any signal frequencies below 88 MHz. 
     \item Let's set it to 1uF, which would give us an impedance of \(\frac{1}{2\pi j (100*10^6) (1*10^{-6})} -0.0628j \) at 100 MHz and \(\frac{1}{2\pi j (100) (1*10^{-6})} = 62.8k\) ohms at 100 Hz.
     \item Unfortunately, this won't work because I couldn't find any 1 uF capacitors online that would have a self-resonant freq. above 100 MHz.
-    \item However, I did find a 0.1 uF broadband capacitor: https://www.digikey.com/en/products/detail/kyocera-avx/530L104KT16T/6570911?s=N4IgTCBcDaIKwGYAMAZABAYwIYAcsYEsAXAewCcQBdAXyA
+    \item However, I did find a 0.1 uF broadband capacitor: \url{https://www.digikey.com/en/products/detail/kyocera-avx/530L104KT16T/6570911?s=N4IgTCBcDaIKwGYAMAZABAYwIYAcsYEsAXAewCcQBdAXyA}
     \item It doesn't have a SPICE model, but it does have low insertion loss through 18 GHz, so it should be fine.
     \item What about the self-resonant frequency? According to perplexity, it seems like certain broadband capacitors can damp their resonance or use other advanced techniques to have a low insertion loss throughout the desired frequency range, despite their SRF being in the desired frequency range. Therefore, I am just going to use an ideal capacitor in LTSPICE, not worrying about the SRF.
     \item How much group delay is too much?

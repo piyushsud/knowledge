@@ -1,0 +1,26 @@
+% !TEX root = C:/Users/piyus/knowledge/EE/Analog/sample_and_hold_circuits/sample_and_hold.tex
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\graphicspath{ {C:/Users/piyus/knowledge/EE/Analog/sample_and_hold_circuits/pictures} }
+
+\title{Sample and Hold Amplifiers Notes}
+\author{Piyush Sud}
+\date{10/10/2024}
+\begin{document}
+\maketitle
+
+\pagebreak
+
+\section{Notes}
+
+\begin{itemize}
+    \item The acquisition time is the minimum hold \(=>\) sample time, and the settling time is the minimum sample \(=>\) hold time.
+    \item For high frequencies, open-loop configurations are generally used with diode bridge circuits.
+    \item Generally, a buffer is required at the output for driving the load in order to prevent charge from leaking from the capacitor.
+    \item For closed loop designs, output integrators can be used as the buffer in order to create a virtual ground at the input, which allows the switch to be switched from ground to virtual ground, eliminating leakage current issues.
+\end{itemize}
+
+
+\end{document}
