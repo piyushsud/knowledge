@@ -49,8 +49,7 @@ For the mixer, we need:
     \item In a high-side mixer, the FM modulated signal will essentially be inverted. This is because \(f_{IF} = \mid f_{RF} - f_{LO} \mid \), so if \(f_{RF}\) increases then \(f_{RF}\) becomes closer to \(f_{LO}\), so \(f_{IF}\) decreases. This doesn't really matter (not completely sure about this), as long as we're aware that it's mirrored. https://www.edaboard.com/threads/high-side-injection-and-low-side-injection-in-mixer.125131/
     \item Let's use low-side mixing so that the signal is not inverted. This means that fLO = fRF - fIF = fRF - 10.7MHz.
     \item Does a clock generator work (square wave) or do I need a sine wave for the LO?
-    \item There seems to be a variety of different opinions online. \url{https://www.reddit.com/r/rfelectronics/comments/12wqxvw/rf_mixer_square_wave_lo/}
-    \item It seems like a square wave is practically hard to produce, but could be beneficial. Some people are also saying that the higher order harmonics could be aliased down to the IF, others are saying that a square wave is the ideal mixer input. For now, I'm going to go with a square wave.
+    \item According to this, it seems like a square wave can cause higher order harmonics to be aliased down into the frequency range of interest. \url{https://www.reddit.com/r/rfelectronics/comments/12wqxvw/rf_mixer_square_wave_lo/}. Therefore, let's use a sine wave LO.
     \item If we're using the ADF4169CCPZ above, we'll need to write to the registers to control the input, which means we'll need a microcontroller to do that.
     \item It doesn't explicitly mention it, but looks like it uses I2C since it has a clock and data line. If not, we can just manually code the protocol instead of using an I2C library.
     \item We can use the same 0.1 uF cap we used as a blocking cap for the HF amp as a decoupling cap here since it has a very high self-resonant frequency of 6 GHz.
