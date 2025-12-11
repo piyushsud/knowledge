@@ -138,13 +138,44 @@ TURNS OUT i accidentally put a 9.2nH inductor in altium instead of a 19.2 nH!!!!
 
 
 
-What about the output matching network? that one's a little worse, around 42 ohms. TODO: figure out why
+What about the output matching network? that one's a little worse, around 105 ohms at 10 MHz. Seems like it's off by a factor of 2. TODO: figure out why, check most recent gemini response.
+
+Let's try with just the 1.2k res and see if we get the desired 1.2/16 ratio. It's 37.3 ohms, when it should be 75 ohms. 
+
+According to gemini, if u half the number of turns in a trasnformer, then the inductance is 1/4, since inductance is proportional to the square of the number of turns.
+
+THis means that to model the center tapped transformer, the inductance of each half is 80 uH/4 = 20 uH. That solves the issue!
+
+now we have another issue: the RL is quite large on the matching network, around 12 dB. However, we can just make the transmission line distance short and it shouldn't really be an issue at 10 MHz.
+
+Everything is great for mixer!!!!! YAYYY!
+
+
+Now for LO Simulation:
+
+Let's use ADISimPLL to confirm the LO locks within a reasonable time and is stable. 
+
+ok but how are we adjusting the LO freq? Using a MCU!
+
+it seems like we were using hand calcs before using renesas instead of adisimpll. but adisimpll will be more accurate. let's just use that. actually will probably need to be a combination of both.
+
+simulated using adisimpll to find loop filter values, lock time ~= 500 us, PM = 60 degrees, loop BW = 10 kHz, CP current = 2.4 mA.
+
+DONE simulating mixer and LO!!!
 
 
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{input_impedance}
 \end{figure}
 
+
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{pll_freq_response}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{pll_schematic}
+\end{figure}
 
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{output_impedance}

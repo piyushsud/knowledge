@@ -64,7 +64,7 @@ The higher frequency cosine component can be filtered out, leaving a function wh
 \section{Detailed Design}
 
 \begin{itemize}
-    \item For the tank circuit, the self resonant frequency is given by \( \frac{1}{2\pi \sqrt{RC}}\). If we choose L = 0.1 uH, then for a resonant frequency of 10.7 MHz, this gives us 2.21 nF. 
+    \item For the tank circuit, the self resonant frequency is given by \( \frac{1}{2\pi \sqrt{LC}}\). If we choose L = 0.1 uH, then for a resonant frequency of 10.7 MHz, this gives us 2.21 nF. 
     \item For the 90 degree phase shift cap, we can use a small 10 pF cap. 
     \item Since the inductor and capacitor values are not exact, the resonant frequency of the tank circuit will not be exactly 10.7 MHz. This will result in a phase error \(\alpha\). We can AC couple the output to solve this issue.
     \item \[ out = \frac{A^2}{2}sin(\phi + \alpha) \]
@@ -75,6 +75,16 @@ The higher frequency cosine component can be filtered out, leaving a function wh
     \end{figure}
 \end{itemize}
 
+\section{Mixer Impedance Matching}
+
+WAIT AT AUDIO FREQ U CANT USE 0.1 uF BYPASS CAPS! FREQ CAN BE 20 Hz!!
+
+so output needs to be dc coupled to vcc. this won't work. need to choose a different mixer!
+
+The AD831 seems like a good option - it says, "all ports can be DC coupled"!
+
+\begin{itemize}
+    \item For the mixer, at 10.7 MHz the frequency is sufficienctly low so we can assume the input impedance is mostly low. In fact, at this frequency PCB trace length is probably not an issue so impedance matching is not necessary. 
 
 \section{Simulations}
  
@@ -86,5 +96,12 @@ Here is a simulation of the tank circuit in the discriminator:
     \includegraphics[width=\textwidth]{tank_circuit}
 \end{figure}
 
+Here's a simulation of the fm detector working at low frequencies (at high frequencies LTSpice doesn't handle it very well) 
+
+\begin{figure}[h]
+    \includegraphics[width=\textwidth]{discriminator_sim_low_freq}
+\end{figure}
+
+Here's a simulation of the output impedance:
 
 \end{document}
