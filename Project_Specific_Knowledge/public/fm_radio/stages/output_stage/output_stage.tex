@@ -17,14 +17,17 @@
 
 \begin{itemize}
     \item LM386MX-1/NOPB seems like a good output stage headphone amp. It lists fm radio amplifiers as one of the intended applications.
-    \item 
+    \item It has two gain settings: 20 dB, and 200 dB. Let's choose 20 dB.
+
 \end{itemize}
 
 \section{Calculations}
 
 \begin{itemize}
-    \item Supply voltage is between 4 and 12V. Let's use 5V.
-    \item 
+    \item The supply voltage is between 4 and 12V. Let's use 5V.
+    \item The example circuit uses a potentiometer at the input of the amplifier for volume control.
+    \item Since audio frequencies are very low (20 Hz minimum), the AC coupling capacitor needs to be very large. Let's choose 220 uF, which results in an impedance of 36.17 dB.
+    \item A 10 uF capacitor can optionally be inserted between pins 1 and 8 if extra gain is needed. Let's put a DNP there.
 \end{itemize}
 
 \end{document}
