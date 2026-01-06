@@ -75,98 +75,21 @@ For the mixer, we need:
 
 \begin{itemize}
     \item Following this link, second order loop filter design: \url{https://www.renesas.cn/cn/zh/document/apn/pll-loop-filter-design-and-fine-tuning}
-    \item Desired loop bandwidth must satisfy Fpd/Fc >> 20, where Fpd is the freq. to the phase detector = the frequency of our ref signal, which is 1 MHz. This means that Fc << 1 MHz/20 = 50 kHz. Let's set the loop bandwidth to 10 kHz.
-    \item Rs = \(\frac{2*pi*f_c*N}/{I_{cp}*K_{Vco}}\). N varies between 77 and 97 -> Let's choose 87 as the nominal value. According to the datasheet, it is best to start with 2.5 mA for the charge pump current. The VCO gain is given by 6.2 MHz/V. Therefore, \(Rs = \frac{2*3.1415*10000*87}{2.5*10^-3*6.2*10^6} = 352.658709677\) ohms. 
+    \item Desired loop bandwidth must satisfy Fpd/Fc \(>>\) 20, where Fpd is the freq. to the phase detector = the frequency of our ref signal, which is 1 MHz. This means that Fc << 1 MHz/20 = 50 kHz. Let's set the loop bandwidth to 10 kHz.
+    \item Rs = \(\frac{2*pi*f_c*N}/{I_{cp}*K_{Vco}}\). N varies between 77 and 97, so let's choose 87 as the nominal value. According to the datasheet, it is best to start with 2.5 mA for the charge pump current. The VCO gain is given by 6.2 MHz/V. Therefore, \(Rs = \frac{2*3.1415*10000*87}{2.5*10^-3*6.2*10^6} = 352.658709677\) ohms. 
     \item Cs = \(\frac{alpha}{2*pi*f_c*R_c}\), where alpha is the ratio of the loop bandwidth to the zero frequency. It's recommended that alpha > 3, so let's do alpha = 5. That gives \(Cs = \frac{5}{2*3.1415*10000*352.6587} = 225.656757\) nF.
     \item Cp = \(\frac{Cs}{alpha*Beta}\), where beta is the ratio between pole freq. and bandwidth. It's recommended that beta > 3, so let's choose beta = 5. That gives \(Cp = \frac{225.656757*10^-9}{5*5} = 9.02627028\) nF.
     \item The maximum phase margin is given by \(arctan(\frac{b-1}{2*sqrt(b)})\), where \(b = 1 + \frac{Cs}{Cp}\). In our case, \(b = 1 + \frac{225.656757}{9.02627028} = 26\), so the phase margin = 67.80839366845 degrees \(>\) 50 degrees \(->\) the PLL is stable.
 \end{itemize}
 
-\section{Mixer Impedance Matching}
-
-\begin{figure}[h]
-    \includegraphics[width=\textwidth]{mixer_input_impedance_match}
-\end{figure}
-
-\begin{figure}[h]
-    \includegraphics[width=\textwidth]{LO_circuit}
-\end{figure}
-
-\begin{figure}[h]
-    \includegraphics[width=\textwidth]{output_circuit}
-\end{figure}
-
-\begin{itemize}
-    \item For the mixer, the input impedance varies between 28.5 + 0.8j to 28.5 + 1.6j for the frequencies of 70 MHz to 140 MHz based on this table. 
-    \item Since we're operating at a nominal frequency of 98 MHz, the input impedance = 28.5 + 1.12j. \(Q = sqrt(\frac{Rs}{Rl} - 1) = sqrt(\frac{50}{28.5} - 1) = 0.86855395049\). \(Xc = \frac{Rs}{Q} = \frac{50}{0.86855395049} = 57.5669478814 \) ohms = \( \frac{1}{2*pi*98M*C} => C = \frac{1}{2*pi*98M*57.5669478814} = 28.211154 \) pF. \( Xl = Rl*Q = 28.5*0.86855395049 = 24.753787589 \) ohms. \( X_{ext} = X_l - X_int = 24.753787589 - 1.12 = \frac{31.6931602924}{2} = 23.633787589 \) ohms. Divide this by 2 to get 11.8168937945 ohms per inductor = \(2*pi*98M*Lext => Lext = 19.1909904 \)nH.
-    \item We need a transformer for converting the single ended signal to differential. We need a 1:1 ratio for impedance matching and it needs to have a center tap and operate at high frequencies. This seems like a good choice: \url{https://www.digikey.com/en/products/detail/mini-circuits/ADT1-1WT/13927938?s=N4IgTCBcDaIIIBEAqBGAtCg6kg1CAugL5A}
-    \item For the LO, the datasheet gives component values in a table for some frequencies 150 MHz and above. Since the exact reactive formula is not given, we will have to extrapolate. Our LO frequency is 98 MHz - 10.7 MHz = 87.3 MHz.
-    \item From the trendline, it seems like we need \(C4 = 15.443e^{-0.005*87.3} = 9.98\) pF and \(L5 = 103.57e^{0.003*87.3} = 79.71\) nH. 
-    \item For the output impedance, the table gives a value for 10 MHz - that is close enough to 10.7 MHz so we can just use that, and it says that the match BW is 3 - 60 MHz for those values. At 10 MHz, it seems like the only matching needed is real, in the form of a 16:1 transformer. Let's just use the one recommended in the datasheet, as it seems like that's the one on of the only ones I can find that meets our requirements. 
-    \item We can also keep the output differential since the variable gain amplifier takes a differential input. For the differential to single ended transformation, a 16:1 impedance ratio is required. The impedance to ground is half of the impedance across the terminals, so this means that the impedance to ground on the mixer side before the transformer is actually 1/32 of the impedance to ground on the right side. It is very hard to find a 32:1 transformer - we would need to cascade multiple transformers. An easier approach would just be to convert to single ended and use a single ended configuration for the variable gain amplifier.
-
-\end{itemize}
-
-\begin{figure}[h]
-    \includegraphics[width=\textwidth]{C4_trendline}
-\end{figure}
-
-\begin{figure}[h]
-    \includegraphics[width=\textwidth]{L5_trendline}
-\end{figure}
-
 
 \section{Simulating the Mixer}
 
-It seems like the LT5560 has no LTSpice model. But it can be simulated using ADIsimRF, which can calculate cascaded gain, noise, distortion and power consumption.
+Right now, my main goal is to make sure the circuit works on a basic level. For this, let's just simulate the circuit using an ideal mixer in LTSpice. Later we can optimize for distortion. There's no point simulating the mixer IC since we know that will work (with some nonidealities which we don't care about since we're just testing basic functionality). \newline \newline
+For the LO Simulation, let's use ADISimPLL to confirm the LO locks within a reasonable time and is stable. It seems like we were using hand calcs before using renesas instead of ADISimPLL. But ADISimPLL will be more accurate. \newline \newline
 
-This brings us to another question - what is the purpose of simulating these circuits? Is it to optimize for a spec, or confirm basic functionality?
+\noindent Simulated using ADISimPLL to find loop filter values, lock time ~= 500 us, PM = 60 degrees, loop BW = 10 kHz, CP current = 2.4 mA.
 
-Right now, my main goal is to make sure the circuit works on a basic level. For this, let's just simulate the circuit using an ideal mixer in LTSpice. Later we can optimize for distortion.
-
-The purpose of the resistor is to damp any unwanted oscillations.
-
-At 100 MHz the input impedance is approximately 28.5 + 1.143j, which can be modeled by two inductors Xint/2 and a resistor RL, where Xint = 1.143 ohms and RL = 28.5. This means that Lint = 1.819 nH.
-
-There's no point simulating the mixer IC since we know that will work (with some nonidealities which we don't care about since we're just testing basic functionality). 
-
-Let's just test the input matching network impedance.
-
-LTSpice calc is showing that impedance after matching network is 34 ohms instead of 50. DOUBLE CHECK LC NETWORK CALCULATIONS
-
-TURNS OUT i accidentally put a 9.2nH inductor in altium instead of a 19.2 nH!!!! It works now, impedance of 49.3 ohms while ignoring inductor resistances for simplicity!
-
-
-
-What about the output matching network? that one's a little worse, around 105 ohms at 10 MHz. Seems like it's off by a factor of 2. TODO: figure out why, check most recent gemini response.
-
-Let's try with just the 1.2k res and see if we get the desired 1.2/16 ratio. It's 37.3 ohms, when it should be 75 ohms. 
-
-According to gemini, if u half the number of turns in a trasnformer, then the inductance is 1/4, since inductance is proportional to the square of the number of turns.
-
-THis means that to model the center tapped transformer, the inductance of each half is 80 uH/4 = 20 uH. That solves the issue!
-
-now we have another issue: the RL is quite large on the matching network, around 12 dB. However, we can just make the transmission line distance short and it shouldn't really be an issue at 10 MHz.
-
-Everything is great for mixer!!!!! YAYYY!
-
-
-Now for LO Simulation:
-
-Let's use ADISimPLL to confirm the LO locks within a reasonable time and is stable. 
-
-ok but how are we adjusting the LO freq? Using a MCU!
-
-it seems like we were using hand calcs before using renesas instead of adisimpll. but adisimpll will be more accurate. let's just use that. actually will probably need to be a combination of both.
-
-simulated using adisimpll to find loop filter values, lock time ~= 500 us, PM = 60 degrees, loop BW = 10 kHz, CP current = 2.4 mA.
-
-DONE simulating mixer and LO!!!
-
-
-\begin{figure}[h]
-    \includegraphics[width=\textwidth]{input_impedance}
-\end{figure}
 
 
 \begin{figure}[h]
@@ -175,10 +98,6 @@ DONE simulating mixer and LO!!!
 
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{pll_schematic}
-\end{figure}
-
-\begin{figure}[h]
-    \includegraphics[width=\textwidth]{output_impedance}
 \end{figure}
 
 \begin{figure}[h]
