@@ -68,28 +68,13 @@ The higher frequency cosine component can be filtered out, leaving a function wh
     \item For the 90 degree phase shift cap, we can use a small 10 pF cap. 
     \item Since the inductor and capacitor values are not exact, the resonant frequency of the tank circuit will not be exactly 10.7 MHz. This will result in a phase error \(\alpha\). We can AC couple the output to solve this issue.
     \item \[ out = \frac{A^2}{2}sin(\phi + \alpha) \]
-    \item We need a mixer that can mix down to very low frequencies, since the mono baseband is typically 50 Hz to 15 kHz. We can use the same LT5600 that we used earlier for the IF, since according to \url{https://ez.analog.com/rf/f/q-a/165857/lt5560-low-frequency-performance}, the output goes down to DC.
-    \item We can use an op-amp at the output and pullup resistors since transformers are impractical for DIFF to SE conversion at low frequencies, since the size of transformers is inversely proportional to their frequency for a given power transfer.
-    \begin{figure}[h]
-        \includegraphics[width=\textwidth]{low_frequency_output}
-    \end{figure}
+    \item We need a mixer that can mix down to very low frequencies, since the mono baseband is typically 50 Hz to 15 kHz. Let's use the AD831, since the output can go down to DC.
 \end{itemize}
 
-\section{Mixer Impedance Matching}
-
-WAIT AT AUDIO FREQ U CANT USE 0.1 uF BYPASS CAPS! FREQ CAN BE 20 Hz!!
-
-so output needs to be dc coupled to vcc. this won't work. need to choose a different mixer!
-
-The AD831 seems like a good option - it says, "all ports can be DC coupled"!
-
-\begin{itemize}
-    \item For the mixer, at 10.7 MHz the frequency is sufficienctly low so we can assume the input impedance is mostly low. In fact, at this frequency PCB trace length is probably not an issue so impedance matching is not necessary. 
 
 \section{Simulations}
  
 Here is a simulation of the tank circuit in the discriminator:
-
 
 
 \begin{figure}[h]
@@ -101,7 +86,5 @@ Here's a simulation of the fm detector working at low frequencies (at high frequ
 \begin{figure}[h]
     \includegraphics[width=\textwidth]{discriminator_sim_low_freq}
 \end{figure}
-
-Here's a simulation of the output impedance:
 
 \end{document}
