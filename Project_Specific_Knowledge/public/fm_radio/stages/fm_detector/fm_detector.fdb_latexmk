@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1767690063.04562 "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.tex" "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.pdf" "fm_detector" 1767690064.17357 0
-  "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.aux" 1767690064 615 ea59d2a8c2dacd333c7f9433fc3fa3e0 "pdflatex"
-  "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.out" 1767690064 512 ef62275b0a8892b5af6d9da8c3217126 "pdflatex"
-  "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.tex" 1767690061 3423 beeb3224144e123011d64b045090f9dc ""
+["pdflatex"] 1767855099.14241 "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.tex" "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.pdf" "fm_detector" 1767855100.32751 0
+  "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.aux" 1767855100 615 ea59d2a8c2dacd333c7f9433fc3fa3e0 "pdflatex"
+  "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.out" 1767855100 512 ef62275b0a8892b5af6d9da8c3217126 "pdflatex"
+  "C:/Users/piyus/knowledge/Project_Specific_Knowledge/public/fm_radio/stages/fm_detector/fm_detector.tex" 1767855098 3539 9c3565c5fe68d6207fedba7cdec7c8e3 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1751282822 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1751284440 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1751283727 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -66,7 +66,7 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1751292469 5569470 f263a82cf6bb394f5bc87b63f38b78df ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1751292631 3599660 8fc2b233353bc298c8a8f7469ababee8 ""
   "c:/texlive/2025/texmf.cnf" 1751292451 713 e69b156964470283e0530f5060668171 ""
-  "fm_detector.tex" 1767690061 3423 beeb3224144e123011d64b045090f9dc ""
+  "fm_detector.tex" 1767855098 3539 9c3565c5fe68d6207fedba7cdec7c8e3 ""
   "pictures/discriminator_sim_low_freq.png" 1755475849 60754 2e0bb26c484fdaf34f64db4ec2fd8c9a ""
   "pictures/fm_discriminator.PNG" 1751256366 27850 32de318d493fd32765f7ac3c581dc288 ""
   "pictures/tank_circuit.PNG" 1751256366 194805 9eacf85b78f9e23c14a3f3627d98d109 ""

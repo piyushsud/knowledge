@@ -37,27 +37,27 @@ There are a few different types of fm detectors that are commonly used:
     \includegraphics[width=\textwidth]{fm_discriminator}
 \end{figure}
 
-The original signal is 
+The fm modulated signal is 
 
-\[Acos(wt)\] 
+\[Acos((w + bb(t))t)\] 
 
-The signal after C2 is shifted by 90 degrees due to the capacitor, and additionally shifted by \(\phi\) due to the difference between the resonant frequency of the tank circuit and the incoming FM signal. Therefore the signal after C2 is 
+\noindent where bb(t) is the baseband signal. The signal after C2 is shifted by 90 degrees due to the capacitor, and additionally shifted by \(\phi\) due to the difference between the resonant frequency of the tank circuit and the incoming FM signal. Therefore the signal after C2 is 
 
-\[Acos(wt + \frac{\pi}{2} + \phi)\] 
+\[Acos((w + bb(t))t + \frac{\pi}{2} + \phi)\] 
 
 Multiplying these two together gives 
 
-\[Acos(wt) * Acos(wt + \frac{\pi}{2} + \phi)\] 
+\[Acos((w + bb(t))t) * Acos((w+bb(t))t + \frac{\pi}{2} + \phi)\] 
 
 By the identity \(cos(a)cos(b) = \frac{1}{2}[cos(a-b) + cos (a+b)] \),
 
-\[= \frac{A^2}{2}cos(-\pi/2 - \phi) + cos(2wt + \frac{\pi}{2} + \phi)\] 
+\[= \frac{A^2}{2}cos(-\pi/2 - \phi) + cos(2(w+bb(t))t + \frac{\pi}{2} + \phi)\] 
 
 Noting that \(cos(-\pi/2 - \phi) = sin(\phi)\), 
 
-\[= \frac{A^2}{2}sin(\phi) + cos(2wt + \frac{\pi}{2} + \phi)\] 
+\[= \frac{A^2}{2}sin(\phi) + cos(2(w + bb(t))t + \frac{\pi}{2} + \phi)\] 
 
-The higher frequency cosine component can be filtered out, leaving a function whose amplitude is proportional to the phase, which in turn is proportional to \(sin(\phi)\). For small values of \(\phi\), this is approximately equal to \(\phi\).
+\noindent The higher frequency cosine component can be filtered out, leaving a function whose amplitude is proportional to the phase, which in turn is proportional to \(sin(\phi)\). For small values of \(\phi\), this is approximately equal to \(\phi\).
 
 
 
